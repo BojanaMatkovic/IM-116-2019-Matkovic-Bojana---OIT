@@ -1,6 +1,6 @@
 package geometry;
 
-public class Donut extends Circle{
+public class Donut extends Circle {
 	
 	private int innerR;
 	
@@ -16,9 +16,17 @@ public class Donut extends Circle{
 	public int getInnerR() {
 		return innerR;
 	}
+	
+	@Override
+	public boolean contains (int x, int y) {
+		return super.contains(x,y) && super.getCenter().distance(x,y) >=innerR;
+	}
+	
+	@Override
+	public boolean contains(Point p) {
+		return this.contains(p.getX(),p.getY());
+	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "innerR=" + innerR;

@@ -1,12 +1,12 @@
 package geometry;
 
-public class Line {
+public class Line extends Shape{
 	
 	//obelezja
 	
 	private Point startPoint;
 	private Point endPoint;
-	private boolean selected;
+	
 	
 	//konstruktori
 	
@@ -32,6 +32,16 @@ public class Line {
 		return "startPoint=" + startPoint + ", endPoint=" + endPoint ;
 	}
 	
+	public double length() {
+		return startPoint.distance(endPoint.getX(), endPoint.getY());
+	}
+	
+	public boolean contains (int x, int y) {
+		return (startPoint.distance(x, y) + endPoint.distance(x, y)) - length() <=2;
+	}
+	
+	//formule - analiticka geometrija ponoviti
+	
 	
 
 	public Point getStartPoint() {
@@ -50,13 +60,7 @@ public class Line {
 		this.endPoint = endPoint;
 	}
 
-	public boolean isSelected() {
-		return selected;
-	}
-
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
+	
 	
 	
 	

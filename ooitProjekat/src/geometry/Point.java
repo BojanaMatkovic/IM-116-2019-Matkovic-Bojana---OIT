@@ -1,10 +1,10 @@
 package geometry;
 
-public class Point {
+public class Point extends Shape{
 	//obelezja
 	private int x;
 	private int y;
-	private boolean selected;
+	
 	
 	//konstruktori - sluze za kreiranje objekata neke klase
 	
@@ -24,12 +24,11 @@ public class Point {
 	}
 	
 	@Override
-	//toString sluzi 
+	//toString sluzi za reprezentaciju nekog objekta
 	public String toString() {
 		return "(" + x + ", " + y + ")";
 				
 	}
-	
 	
 	//izracunati razmak izmedju dve tacke po formuli
 	
@@ -39,6 +38,19 @@ public class Point {
 		double d = Math.sqrt(dx*dx+dy*dy);
 		return d;
 	}
+	
+	//proveravamo da li neki objekat sadrzi neke koordinate, potrebno je da ima neke argumente
+	//gledamo razdaljinu izmedju tacke i koordinata, da bude manja od 2
+	
+	public boolean contains (int x, int y) {
+		return this.distance(x, y)<=2; //this - nad ovom metodom pozovi mi distance kojoj prosledjujemo vr x i y
+	}
+	
+	public boolean contains (Point p) {
+		return this.contains(p.getX(), p.getY());
+	}
+	
+	
 	
 	public int getX() { 
 		return x;
@@ -56,13 +68,7 @@ public class Point {
 		this.y = y;
 	}
 
-	public boolean isSelected() {
-		return selected;
-	}
 
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
 	
 	
 

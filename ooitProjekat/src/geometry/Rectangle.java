@@ -1,11 +1,11 @@
 package geometry;
 
-public class Rectangle {
+public class Rectangle extends Shape{
 	
 	private Point upperleft;
 	private int width;
 	private int height;
-	private boolean selected;
+	
 	
 	public Rectangle() {
 	
@@ -24,8 +24,12 @@ public class Rectangle {
 		this.selected=selected;
 	}
 	
+	public boolean contains (int x, int y) {
+		return (upperleft.getX() < x) && (upperleft.getX() + width > x) 
+				&& (upperleft.getY()) < y && (upperleft.getY() + height > y);
+	}
 	
-
+	
 	@Override
 	public String toString() {
 		return "upperleft=" + upperleft + ", width=" + width + ", height=" + height;
@@ -55,13 +59,8 @@ public class Rectangle {
 		this.height = height;
 	}
 
-	public boolean isSelected() {
-		return selected;
-	}
-
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
+	
+	
 	
 	
 
