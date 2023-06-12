@@ -6,4 +6,8 @@
  *
  */
 module ooitProjekat {
+	
+	requires java.desktop;
+	
+	
 }
